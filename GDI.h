@@ -69,10 +69,10 @@ public:
 
 	//»æÖÆÎÄ±¾
 	bool DrawTextB(HDC hdc, int a_x, int a_y, int b_x, int b_y,
-		LPCTSTR text, bool isCenter = false);
+		LPCTSTR text, bool isCenter = false,bool isTransparent=true);
 	
 	bool DrawTextB(HDC hdc, Point _p1, Point _p2,
-		LPCTSTR text, bool isCenter = false);
+		LPCTSTR text, bool isCenter = false, bool isTransparent = true);
 
 	bool DrawBmp(HDC hdc, LPCTSTR filePath, int _x, int _y, int _width, int _height,
 		int src_x = 0, int src_y = 0);

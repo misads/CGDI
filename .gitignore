@@ -57,6 +57,23 @@ artifacts/
 # StyleCop
 StyleCopReport.xml
 
+#VisualStudio Project
+*.sln
+*.vcxproj
+*.filters
+
+#Resource files
+*.ico
+*.rc
+
+#auto-generated files
+main.cpp
+stdafx.*
+targetver.h
+Resource.h
+Win32Project3.h
+ReadMe.txt
+
 # Files built by Visual Studio
 *_i.c
 *_p.c

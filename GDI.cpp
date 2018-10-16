@@ -95,7 +95,7 @@ bool CGDI::DrawSolidRectangleEx(HDC hdc, int a_x, int a_y, int b_x, int b_y,
 }
 
 bool CGDI::DrawTextB(HDC hdc, int a_x, int a_y, int b_x, int b_y,
-	LPCTSTR text, bool isCenter){
+	LPCTSTR text, bool isCenter,bool isTransparent){
 	RECT rt;
 	UINT uFormat = DT_SINGLELINE;
 	rt.left = a_x;
@@ -104,13 +104,8 @@ bool CGDI::DrawTextB(HDC hdc, int a_x, int a_y, int b_x, int b_y,
 	rt.bottom = b_y;
 	if (isCenter)
 		uFormat |= DT_CENTER;
-	SetBkMode(hdc, TRANSPARENT);
-	//HDC font1;
-	/*font1 = (HDC)CreateFont(30, 0, 0, 0, 400, FALSE, FALSE, 0,
-		GB2312_CHARSET, OUT_DEFAULT_PRECIS,
-		CLIP_DEFAULT_PRECIS, DEFAULT_QUALITY,
-		DEFAULT_PITCH | FF_MODERN, L"Î¢ÈíÑÅºÚ");
-		*/
+	if (isTransparent)SetBkMode(hdc, TRANSPARENT);
+
 
 	SelectObject(hdc, m_hFont);
 
@@ -121,8 +116,8 @@ bool CGDI::DrawTextB(HDC hdc, int a_x, int a_y, int b_x, int b_y,
 }
 
 bool CGDI::DrawTextB(HDC hdc, Point _p1, Point _p2,
-	LPCTSTR text, bool isCenter){
-	return DrawTextB(hdc, _p1.x, _p1.y, _p2.x, _p2.y, text, isCenter);
+	LPCTSTR text, bool isCenter, bool isTransparent){
+	return DrawTextB(hdc, _p1.x, _p1.y, _p2.x, _p2.y, text, isCenter, isTransparent);
 }
 
 
